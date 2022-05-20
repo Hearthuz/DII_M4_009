@@ -13,12 +13,12 @@ function addStudentToTable(index,student){
     cell = document.createElement('td')
     cell.appendChild(div)
     div.appendChild(image)
-    image.setAttribute('src',student.imageLink)
+    image.setAttribute('src',student.image)
     image.classList.add('img-thumbnail')
     image.style.width = '150px'
     row.appendChild(cell)
     cell = document.createElement('td')
-    cell.innerHTML = student.gender
+    cell.innerHTML = student.description
     row.appendChild(cell)
     tableBody.appendChild(row)
 }
@@ -30,7 +30,7 @@ function addStudentList(studentlist){
 }
 
 function onLoad(){
-    fetch('asset/students2.json').then(response => {
+    fetch('https://dv-student-backend-2019.appspot.com/students').then(response => {
         return response.json()
     })
         .then(data =>{
