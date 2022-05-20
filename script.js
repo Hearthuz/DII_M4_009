@@ -15,7 +15,6 @@ var students = [student, secondStudent,
         gender: 'ชาย'
     }
 ]
-console.log(students)
 
 function addStudentToTable(index,student){
     const tableBody = document.getElementById('tableBody')
@@ -40,6 +39,13 @@ function addStudentList(studentlist){
     for(student of studentlist){
         addStudentToTable(counter++ ,student)
     }
+}
+
+function onLoad(){
+    fetch('assets/students.json').then(data => {
+        students = data.json()
+    })
+    console.log(students)
 }
 window.addEventListener('load', function(){
     addStudentList(students)
